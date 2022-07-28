@@ -16,7 +16,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "password",
+    password: "password123",
     database: "PasswordManager",
 });
 
@@ -33,7 +33,7 @@ app.post("/addpassword", (req, res) => {
         if (err) {
             console.log(err);
         } else{
-            res.send("Success");
+            res.send("Hooray");
         }
     }
 );
