@@ -33,7 +33,7 @@ app.post("/addpassword", (req, res) => {
         if (err) {
             console.log(err);
         } else{
-            res.send("Hooray");
+            res.send("Hooray, we can send data to the database");
         }
     }
 );
