@@ -7,6 +7,8 @@ function App() {
 
   const [password, setPassword] = useState("");
   const [website, setWebsite] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [passwordList, setPasswordList] = useState([]);
 
   //Promise. After Axios request receives the data
@@ -21,6 +23,9 @@ function App() {
     Axios.post("http://localhost:3001/addpassword", {
       password: password, 
       website: website,
+      username: username,
+      email: email,
+
     });
   };
 
@@ -53,19 +58,32 @@ function App() {
 
       <div className="passwordInput">
         <input type="text" 
-        placeholder="example password123"
+        placeholder="Password123"
         onChange={(event) => {
           setPassword(event.target.value);
         }}/>
         <br></br>
 
         <input type="text" 
-        placeholder="example easyjet"
+        placeholder="Easyjet"
         onChange={(event) => {
           setWebsite(event.target.value);
         }}/>
         <br></br>
 
+        <input type="text" 
+        placeholder="Elliot@gmail.com"
+        onChange={(event) => {
+          setEmail(event.target.value);
+        }}/>
+        <br></br>
+
+        <input type="text" 
+        placeholder="Elliot83"
+        onChange={(event) => {
+          setUsername(event.target.value);
+        }}/>
+    <br></br>
         <button onClick={addPassword}>Add your password</button>
       </div>
     </div>

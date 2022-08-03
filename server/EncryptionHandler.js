@@ -17,7 +17,7 @@ const encrypt = (password) =>{
     //return an object
     return {
         iv:iv.toString("hex"),
-        password:encryptedPassword.toString("hex")
+        password:encryptedPassword.toString("hex"),
     };
 };
 
