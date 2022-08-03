@@ -10,7 +10,7 @@ const PORT = 3001;
 // const http = require("http");
 
 //call functions in the EncryptionHandler to encrypt our passwords
-const {} = require("./EncryptionHandler");
+const { encrypt } = require("./EncryptionHandler");
 
 app.use(cors());
 app.use(express.json());
@@ -27,11 +27,14 @@ const db = mysql.createConnection({
 
 app.post("/addpassword", (req, res) => {
     const { password, website } = req.body;
+    const hashedPassword = encrypt(password);
+    
 //first db query to insert password and website examples with the values
 //Password = db table name
+//add another column in the table for iv and hashed passwords
     db.query(
-        "INSERT INTO Passwords (password, website) VALUES (?,?)", 
-    [password, website], (err, result) => {
+        "INSERT INTO Passwords (password, website, iv) VALUES (?,?,?)", 
+    [hashedPassword.password, website, hashedPassword.iv], (err, result) => {
         //console log any errors if they occur
         if (err) {
             console.log(err);
@@ -43,6 +46,18 @@ app.post("/addpassword", (req, res) => {
 
 });
 
+//create get method to show actual deciphered password
+
+app.get('/showpasswords', (req, res) =>{
+    db.query('SELECT * FROM passwords;', (err, result) =>{
+        if(err){
+            console.log(err);
+        }else {
+            res.send(result);
+        }
+        });
+
+});
 
 app.listen(PORT, () =>{
     console.log("Server is running");

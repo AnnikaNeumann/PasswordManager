@@ -31,10 +31,11 @@ const decrypt =(encryption) =>{
     );
 
     const decryptedPassword = Buffer.concat([
-        decipher.update(password),
+        decipher.update(Buffer.from(encryption.password, "hex")),
         decipher.final(),
     ]);
 
+    return decryptedPassword.toString();
 };
 
 
