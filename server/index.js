@@ -26,15 +26,15 @@ const db = mysql.createConnection({
 // set up the post method to create a password
 
 app.post("/addpassword", (req, res) => {
-    const { password, website } = req.body;
+    const { password, website, username, email } = req.body;
     const hashedPassword = encrypt(password);
     
 //first db query to insert password and website examples with the values
 //Password = db table name
 //add another column in the table for iv and hashed passwords
     db.query(
-        "INSERT INTO Passwords (password, website, iv) VALUES (?,?,?)", 
-    [hashedPassword.password, website, hashedPassword.iv], (err, result) => {
+        "INSERT INTO Passwords (password, website, username, email, iv) VALUES (?,?,?,?,?)", 
+    [hashedPassword.password, website, username, email, hashedPassword.iv], (err, result) => {
         //console log any errors if they occur
         if (err) {
             console.log(err);
