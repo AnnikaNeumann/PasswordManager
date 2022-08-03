@@ -10,7 +10,7 @@ const PORT = 3001;
 // const http = require("http");
 
 //call functions in the EncryptionHandler to encrypt our passwords
-const { encrypt } = require("./EncryptionHandler");
+const { encrypt, decrypt } = require("./EncryptionHandler");
 
 app.use(cors());
 app.use(express.json());
