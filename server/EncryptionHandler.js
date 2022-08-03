@@ -35,7 +35,7 @@ const decrypt =(encryption) =>{
         decipher.final(),
     ]);
 
-    return decryptedPassword.toString();
+    return decryptedPassword.toString("utf8");
 };
 
 

@@ -24,6 +24,7 @@ function App() {
     });
   };
 
+//encryption is our object
   const decryptPassword = (encryption) => {
     Axios.post("http://localhost:3001/decryptpassword", {
       password: encryption.password,
@@ -35,7 +36,7 @@ function App() {
             ? {
                 id: val.id,
                 password: val.password,
-                title: response.data,
+                website: response.data,
                 iv: val.iv,
               }
             : val;
@@ -69,6 +70,7 @@ function App() {
       </div>
     </div>
     <br></br>
+    
     {/* show list of passwords for website */}
     <div className="Passwords">
         {passwordList.map((val, key) => {

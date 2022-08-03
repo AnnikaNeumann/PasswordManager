@@ -48,7 +48,7 @@ app.post("/addpassword", (req, res) => {
 
 //create get method to show actual deciphered password
 
-app.get('/showpasswords', (req, res) =>{
+app.get('/showpasswords', (req, res) => {
     db.query('SELECT * FROM passwords;', (err, result) =>{
         if(err){
             console.log(err);
@@ -58,6 +58,12 @@ app.get('/showpasswords', (req, res) =>{
         });
 
 });
+
+//route to show passwords from backend on mouse hover in front end, decrypt contains iv and password.
+// on hover receives iv and shows decrypted pw
+app.post("/decryptpassword", (req, res) => {
+    res.send(decrypt(req.body));
+  });
 
 app.listen(PORT, () =>{
     console.log("Server is running");
