@@ -7,7 +7,10 @@ const cors = require("cors");
 const PORT = 3001;
 
 //found this on stackoverflow, might help
-const http = require("http");
+// const http = require("http");
+
+//call functions in the EncryptionHandler to encrypt our passwords
+const {} = require("./EncryptionHandler");
 
 app.use(cors());
 app.use(express.json());
