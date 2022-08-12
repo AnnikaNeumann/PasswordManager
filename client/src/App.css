@@ -1,12 +1,35 @@
-.App {
+/* .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+.tokyo{
+  background-image: url("./assets/vault.jpg");
+  background: white;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size:cover;
+  position:relative;
+  opacity: 90%;
 }
+
+ 
+.hero-text{
+  text-align: left;
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  transform: translate(-55%, -40%);
+  color: rgb(6, 6, 6);
+}
+
 
 h1{
   font-size: 5rem;
+  margin-left: 28%;
+  color: white;
 }
 
 .passwordInput{
@@ -14,12 +37,11 @@ h1{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(82, 126, 82);
-  width: 40%;
+  /* background-color: rgb(82, 126, 82); */
+  width: 120%;
   height: 600px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   margin-top: 20px;
-
 }
 
 
@@ -57,4 +79,9 @@ button{
   font-size: 25px;
   font-family:'Franklin Gothic Medium', Arial, sans-serif;
   cursor: pointer;
+}
+
+.Footer{
+  font-size: 1.5rem;
+  text-align: center;
 }

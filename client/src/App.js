@@ -1,9 +1,12 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import vault from './assets/vault.jpg'
+import Footer from './footer';
 
 
 function App() {
+
 
   const [password, setPassword] = useState("");
   const [website, setWebsite] = useState("");
@@ -53,38 +56,42 @@ function App() {
 
   return (
     <>
+    <img className="tokyo" src={require("./assets/vault.jpg")} alt='Money Heist Vault'/>
+
     <div className="App">
+    <div className='hero-text'>
+
      <h1>Password Manager</h1>
 
       <div className="passwordInput">
         <input type="text" 
-        placeholder="Password123"
+        placeholder="Password"
         onChange={(event) => {
           setPassword(event.target.value);
         }}/>
         <br></br>
 
         <input type="text" 
-        placeholder="Easyjet"
+        placeholder="Website"
         onChange={(event) => {
           setWebsite(event.target.value);
         }}/>
         <br></br>
 
         <input type="text" 
-        placeholder="Elliot@gmail.com"
+        placeholder="Emailaddress"
         onChange={(event) => {
           setEmail(event.target.value);
         }}/>
         <br></br>
 
         <input type="text" 
-        placeholder="Elliot83"
+        placeholder="Username"
         onChange={(event) => {
           setUsername(event.target.value);
         }}/>
-    <br></br>
-        <button onClick={addPassword}>Add your password</button>
+    <br></br><br></br>
+        <button onClick={addPassword}>Submit</button>
       </div>
     </div>
     <br></br>
@@ -109,6 +116,10 @@ function App() {
           );
         })}
       </div>
+      <Footer/>
+
+      </div>
+
     
     </>
   );
